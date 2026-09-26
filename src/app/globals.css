@@ -19,23 +19,42 @@
   --shadow-glass: 0 8px 32px 0 rgba(44, 34, 30, 0.08);
 }
 
+/* Explicit Fallback Utility Classes for Theme Colors */
+.bg-cream { background-color: #FAF7F2 !important; }
+.bg-cream-light { background-color: #FFFDF9 !important; }
+.bg-blush { background-color: #FCEEE9 !important; }
+.bg-lavender { background-color: #EAE6F5 !important; }
+.bg-gold { background-color: #C5A880 !important; }
+.bg-gold-dark { background-color: #A68A60 !important; }
+.bg-bronze { background-color: #2C221E !important; }
+
+.text-cream { color: #FAF7F2 !important; }
+.text-gold { color: #C5A880 !important; }
+.text-gold-dark { color: #A68A60 !important; }
+.text-bronze { color: #2C221E !important; }
+
+.border-gold { border-color: #C5A880 !important; }
+
 @layer base {
   body {
     background-color: #FAF7F2;
     color: #2C221E;
     font-family: var(--font-sans, system-ui, sans-serif);
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
   }
 }
 
 .glass-panel {
-  background: rgba(255, 255, 255, 0.75);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(197, 168, 128, 0.2);
+  background: rgba(255, 255, 255, 0.85);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(197, 168, 128, 0.25);
 }
 
 .glass-card {
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.95);
   backdrop-filter: blur(16px);
   border: 1px solid rgba(234, 230, 245, 0.8);
 }
