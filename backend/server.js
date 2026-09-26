@@ -20,6 +20,17 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
+// DB Middleware for Serverless Environment
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (err) {
+    console.error('DB Connection error in middleware:', err);
+    next(err);
+  }
+});
+
 // API Routes
 app.use('/api/auth', authRoutes);
 app.use('/api/services', serviceRoutes);
@@ -53,25 +64,31 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 5000;
 
-// Connect DB, Auto Seed if Empty & Start Server
-connectDB().then(async () => {
-  // Check if database needs seeding
-  const userCount = await User.countDocuments();
-  if (userCount === 0) {
-    console.log('[Server Startup] Database empty. Triggering automatic database seeder...');
-    await seedDB(false);
-  } else {
-    console.log(`[Server Startup] Database ready with ${userCount} registered users.`);
-  }
+// Connect DB, Auto Seed if Empty & Start Server when executed directly
+if (process.env.VERCEL !== '1') {
+  connectDB().then(async () => {
+    try {
+      const userCount = await User.countDocuments();
+      if (userCount === 0) {
+        console.log('[Server Startup] Database empty. Triggering automatic database seeder...');
+        await seedDB(false);
+      } else {
+        console.log(`[Server Startup] Database ready with ${userCount} registered users.`);
+      }
+    } catch (e) {
+      console.log('Auto seed check skipped:', e.message);
+    }
 
-  app.listen(PORT, () => {
-    console.log(`=================================================`);
-    console.log(`  ✨ LEMON ELEGANCE PMS Backend Server Running  `);
-    console.log(`  📍 Port: ${PORT}`);
-    console.log(`  🌐 Environment: ${process.env.NODE_ENV || 'development'}`);
-    console.log(`=================================================`);
-    
-    // Initialize Node Cron Daily Reminder Task
-    initCron();
+    app.listen(PORT, () => {
+      console.log(`=================================================`);
+      console.log(`  ✨ LEMON ELEGANCE PMS Backend Server Running  `);
+      console.log(`  📍 Port: ${PORT}`);
+      console.log(`  🌐 Environment: ${process.env.NODE_ENV || 'development'}`);
+      console.log(`=================================================`);
+      
+      initCron();
+    });
   });
-});
+}
+
+module.exports = app;
