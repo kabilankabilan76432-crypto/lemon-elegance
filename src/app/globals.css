@@ -1,5 +1,24 @@
 @import "tailwindcss";
 
+@theme {
+  --color-cream: #FAF7F2;
+  --color-cream-light: #FFFDF9;
+  --color-blush: #FCEEE9;
+  --color-blush-soft: #F9E4DC;
+  --color-lavender: #EAE6F5;
+  --color-gold: #C5A880;
+  --color-gold-dark: #A68A60;
+  --color-gold-light: #E5D5B8;
+  --color-bronze: #2C221E;
+  --color-bronze-light: #4A3B35;
+
+  --font-serif: var(--font-serif), Playfair Display, Georgia, serif;
+  --font-sans: var(--font-sans), Plus Jakarta Sans, system-ui, sans-serif;
+
+  --shadow-luxury: 0 10px 30px -10px rgba(197, 168, 128, 0.4);
+  --shadow-glass: 0 8px 32px 0 rgba(44, 34, 30, 0.08);
+}
+
 @layer base {
   body {
     background-color: #FAF7F2;
