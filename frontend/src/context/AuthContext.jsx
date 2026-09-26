@@ -1,6 +1,12 @@
 import React, { createContext, useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 
+// Configure Axios Base URL for deployment flexibility
+const API_URL = import.meta.env.VITE_API_URL || '';
+if (API_URL) {
+  axios.defaults.baseURL = API_URL;
+}
+
 const AuthContext = createContext();
 
 export const AuthProvider = ({ children }) => {
