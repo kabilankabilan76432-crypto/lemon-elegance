@@ -2,7 +2,7 @@
 
 import React from 'react';
 import Link from 'next/link';
-import { Sparkles, MapPin, Phone, Mail, Clock, Instagram, Facebook, Twitter } from 'lucide-react';
+import { Sparkles, MapPin, Phone, Mail, Clock, Globe, Heart, Share2 } from 'lucide-react';
 
 export default function Footer() {
   return (
@@ -22,14 +22,14 @@ export default function Footer() {
               Your premier sanctuary for high-end luxury beauty treatments, holistic skin therapies, hair spa couture, and customized routine beauty care.
             </p>
             <div className="flex items-center gap-3 pt-2">
-              <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gold hover:bg-gold hover:text-white transition">
-                <Instagram className="w-4 h-4" />
+              <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gold hover:bg-gold hover:text-white transition" title="Website">
+                <Globe className="w-4 h-4" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gold hover:bg-gold hover:text-white transition">
-                <Facebook className="w-4 h-4" />
+              <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gold hover:bg-gold hover:text-white transition" title="Favorites">
+                <Heart className="w-4 h-4" />
               </a>
-              <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gold hover:bg-gold hover:text-white transition">
-                <Twitter className="w-4 h-4" />
+              <a href="#" className="w-8 h-8 rounded-full bg-white/10 flex items-center justify-center text-gold hover:bg-gold hover:text-white transition" title="Share">
+                <Share2 className="w-4 h-4" />
               </a>
             </div>
           </div>
