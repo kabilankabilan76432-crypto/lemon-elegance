@@ -5,7 +5,7 @@ import Offer from '@/models/Offer';
 import Appointment from '@/models/Appointment';
 import Reminder from '@/models/Reminder';
 
-const sampleServices = [
+export const sampleServices = [
   // Facials
   {
     name: 'Gold Glow Radiance Facial',
@@ -243,7 +243,7 @@ const sampleServices = [
   },
 ];
 
-const sampleOffers = [
+export const sampleOffers = [
   {
     title: 'First Beauty Glow Deal',
     description: 'Enjoy 20% flat discount on your very first booking at Lemon Elegance!',
