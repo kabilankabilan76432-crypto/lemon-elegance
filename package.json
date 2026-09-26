@@ -13,6 +13,7 @@
     "bcryptjs": "^2.4.3",
     "jsonwebtoken": "^9.0.2",
     "lucide-react": "^0.395.0",
+    "mongodb-memory-server": "^9.4.0",
     "mongoose": "^8.5.1",
     "next": "^15.1.0",
     "node-cron": "^3.0.3",
@@ -24,7 +25,6 @@
     "@tailwindcss/postcss": "^4.0.0",
     "eslint": "^9.0.0",
     "eslint-config-next": "^15.1.0",
-    "mongodb-memory-server": "^9.4.0",
     "tailwindcss": "^4.0.0"
   }
 }
